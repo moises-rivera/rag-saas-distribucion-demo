@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Asistente documental del proyecto SaaS Distribución Perú">
+    <title>RAG · SaaS Distribución Perú</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <div class="brand-mark" aria-hidden="true">R</div>
+        <div>
+          <p class="eyebrow">PORTAFOLIO · IA APLICADA</p>
+          <h1>RAG · SaaS Distribución Perú</h1>
+          <p class="subtitle">Asistente documental del proyecto</p>
+        </div>
+        <div class="status-pill"><span></span> RAG híbrido</div>
+      </header>
+
+      <main class="workspace">
+        <section class="chat-panel" aria-labelledby="chat-title">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">CONSULTA DOCUMENTAL</p>
+              <h2 id="chat-title">Pregunta al proyecto</h2>
+            </div>
+            <span class="privacy-note">Retrieval local · Generación grounded</span>
+          </div>
+
+          <div id="conversation" class="conversation" aria-live="polite">
+            <article class="message assistant-message intro-message">
+              <div class="avatar" aria-hidden="true">AI</div>
+              <div class="message-content">
+                <p class="message-author">Asistente RAG</p>
+                <p>Hola. Respondo usando exclusivamente la documentación del proyecto SaaS Distribución Perú y te muestro las fuentes recuperadas para cada consulta.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="suggestions" aria-label="Preguntas de ejemplo">
+            <p>Prueba con una pregunta</p>
+            <div class="suggestion-list">
+              <button class="suggestion" type="button">¿Quién puede ajustar inventario?</button>
+              <button class="suggestion" type="button">¿Qué información puede revisar el dueño desde el dashboard móvil?</button>
+              <button class="suggestion" type="button">¿Qué alertas aparecen en el dashboard móvil?</button>
+            </div>
+          </div>
+
+          <form id="question-form" class="composer">
+            <label class="sr-only" for="question">Escribe tu pregunta</label>
+            <textarea id="question" name="question" rows="1" maxlength="1000" placeholder="Escribe una pregunta sobre el proyecto…" required></textarea>
+            <button id="submit-button" type="submit">
+              <span>Enviar</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </form>
+          <p class="composer-hint">Enter para enviar · Shift + Enter para una nueva línea</p>
+        </section>
+      </main>
+
+      <footer>Retrieval híbrido · BM25 + embeddings + reranking</footer>
+    </div>
+    <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+  </body>
+</html>
